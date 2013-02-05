@@ -5142,6 +5142,9 @@ pm.request = {
         var originalUrl = $('#url').val();
         var method = this.method.toUpperCase();
         var data = pm.request.body.getRawData();
+		data = data.replace(/\r/g, '');
+		data = data.replace(/\n/g, "\r\n");
+		
         var originalData = data;
         var finalBodyData;
         var headers = this.headers;
